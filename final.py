@@ -18,7 +18,7 @@ page = st.sidebar.radio("메뉴", ["시간표 입력", "겹공강 찾기"])
 
 # 시간표입력
 if page == "시간표 입력":
-    st.title("시간표 입력")
+    st.title("문해컴 6팀 시간표 입력 프로그램")
     name = st.text_input("이름을 입력하세요")
 
     if name:

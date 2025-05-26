@@ -6,5 +6,5 @@
 
 MacOS로 코딩해서 exe파일이 구동되지 않아 부득이하게 Streamlit Cloud에 올립니다.
 
-##License
+#License
 그래프를 예쁘게 만들기 위해 챗지피티의 도움을 받았습니다.

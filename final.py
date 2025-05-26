@@ -50,8 +50,20 @@ elif page == "겹공강 찾기":
         combined = np.array(all_timetables).sum(axis=0)
         free_slots = (combined == 0)
 
+        color_array = np.full(free_slots.shape, '#FFCCCC')  # 연한 빨강 기본
+        color_array[free_slots] = '#CCFFCC'  # 연한 초록으로 덮어쓰기
+        
         fig, ax = plt.subplots(figsize=(10, 4))
-        ax.imshow(free_slots.T, cmap="Greens", aspect="auto")
+        ax.imshow([[0 for _ in range(NUM_DAYS)] for _ in range(NUM_BLOCKS)], alpha=0)
+
+        for i in range(NUM_DAYS):
+            for j in range(NUM_BLOCKS):
+                ax.add_patch(plt.Rectangle((i - 0.5, j - 0.5), 1, 1, color=color_array[i, j]))
+
+        for i in range(NUM_DAYS + 1):
+            ax.axvline(i - 0.5, color='black', linewidth=0.1)
+        for j in range(NUM_BLOCKS + 1):
+            ax.axhline(j - 0.5, color='black', linewidth=0.1)
 
         ax.set_xticks(np.arange(NUM_DAYS))
         ax.set_xticklabels(DAYS)
